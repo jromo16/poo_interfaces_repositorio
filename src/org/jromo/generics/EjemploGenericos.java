@@ -1,6 +1,7 @@
 package org.jromo.generics;
 
 import org.jromo.poointerfaces.modelo.Cliente;
+import org.jromo.poointerfaces.modelo.ClientePremium;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -31,9 +32,20 @@ public class EjemploGenericos {
                 enterosArreglo);
         nombres.forEach(System.out::println);
 
+        List<ClientePremium> clientePremiumsList = fromArrayToList(
+                new ClientePremium[]{new ClientePremium("Paco", "Fernandez"),});
+
     }
 
     public static <T> List<T> fromArrayToList(T[] c) {
+        return Arrays.asList(c);
+    }
+
+    public static <T extends Number> List<T> fromArrayToList(T[] c) {
+        return Arrays.asList(c);
+    }
+
+    public static <T extends Cliente & Comparable<T>> List<T> fromArrayToList(T[] c) {
         return Arrays.asList(c);
     }
 
