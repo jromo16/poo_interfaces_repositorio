@@ -35,6 +35,10 @@ public class EjemploGenericos {
         List<ClientePremium> clientePremiumsList = fromArrayToList(
                 new ClientePremium[]{new ClientePremium("Paco", "Fernandez"),});
 
+        imprimirClientes(clientes);
+        imprimirClientes(clientesLista);
+        imprimirClientes(clientePremiumsList);
+
     }
 
     public static <T> List<T> fromArrayToList(T[] c) {
@@ -54,5 +58,9 @@ public class EjemploGenericos {
             System.out.println( elemento );
         }
         return Arrays.asList(c);
+    }
+
+    public static void imprimirClientes(List<? extends Cliente> clientes) {
+        clientes.forEach(System.out::println);
     }
 }
